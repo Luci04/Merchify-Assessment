@@ -1,13 +1,216 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  background-color: #fff;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #740d96;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  font-size: 15px;
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+}
+
+button:hover {
+  background-color: #9222b8;
+  transform: translateY(-1px);
+  -webkit-transform: translateY(-1px);
+  -moz-transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+  -o-transform: translateY(-1px);
+}
+
+.navbar {
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid #d5d5d5;
+}
+
+.navbar .logo {
+  color: #111;
+}
+
+.quiz-container {
+  overflow: hidden;
+  position: relative;
+  margin: 50px auto 20px;
+  width: 95%;
+  max-width: 650px;
+  min-height: 350px;
+  background-color: #eff1f7;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.05);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.join-screen {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+.join-screen h2 {
+  font-size: 25px;
+  color: #111;
+}
+
+.join-screen p {
+  max-width: 350px;
+  color: #555;
+}
+
+.quiz-screen .question .progress-bar {
+  width: 0%;
+  height: 5px;
+}
+
+.quiz-screen .question .progress-bar.active {
+  animation: progress 60s ease-in-out forwards;
+  -webkit-animation: progress 60s ease-in-out forwards;
+}
+
+.quiz-screen .question .question-count {
+  margin: 20px 0px;
+  text-align: center;
+  font-size: 15px;
+  color: #555;
+}
+
+.quiz-screen .question .main {
+  padding: 20px 40px;
+}
+
+.quiz-screen .question .main .title span {
+  font-size: 15px;
+  color: #555;
+  font-weight: 600;
+}
+
+.quiz-screen .question .main .title p {
+  margin-top: 5px;
+  color: #111;
+}
+
+.quiz-screen .question .main .options {
+  margin: 40px 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.quiz-screen .question .main .options .option {
+  position: relative;
+  width: calc(100% - 20px);
+  background-color: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 17px -5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px -5px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-screen .question .main .options .option .radio-input {
+  accent-color: #9222b8;
+  position: absolute;
+  right: 10px;
+}
+
+.quiz-screen .question .main .options .option .alphabet_container {
+  padding: 2px 5px;
+  text-align: center;
+  margin-right: 10px;
+  border: 1px solid black;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+
+.quiz-screen .question .main .options .option.active .alphabet_container {
+  border: 1px solid #9222b8;
+  background-color: #9222b8;
+  color: #fff;
+}
+
+.quiz-screen .question .control {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1px solid #eee;
+}
+
+.result-screen {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+    background-color: #555;
+  }
+
+  60% {
+    width: 60%;
+    background-color: #555;
+  }
+
+  75% {
+    width: 75%;
+    background-color: orangered;
+  }
+
+  100% {
+    width: 100%;
+    background-color: red;
+  }
 }
